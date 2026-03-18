@@ -32,7 +32,7 @@ I reviewed the suggested code changes and used intuition, pytests, and game runs
 - In your own words, explain why the secret number kept changing in the original app.
 - How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
 - What change did you make that finally gave the game a stable secret number?
-
+The secret number kept changing in the original app due to the secret number being shifted between an int and str every odd and even attempt number respectively. Streamlit reruns the entire script every time an interaction occurs. The session state and its connected variables are only for that one browser tab that opens when the program is run. The change that gave the game a stable secret number was forcing int comparisons between the secret and guess.
 ---
 
 ## 5. Looking ahead: your developer habits
@@ -41,3 +41,4 @@ I reviewed the suggested code changes and used intuition, pytests, and game runs
   - This could be a testing habit, a prompting strategy, or a way you used Git.
 - What is one thing you would do differently next time you work with AI on a coding task?
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+I never really used the AI features in VS Code, but now I see how powerful and convenient it is to have on hand. One thing I'd do differently going forward when working with AI is being very specific with the tasks I want to outline, otherwise the AI can make very unnecessary changes and change things you don't want touched. This project changed the way I think about AI generated code as it really put an emphasis on thorough review of the implementations generated and rigorous testing of that code to make sure everything truly runs properly.
