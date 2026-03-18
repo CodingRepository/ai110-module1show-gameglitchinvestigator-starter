@@ -7,7 +7,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - What did the game look like the first time you ran it?
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
-
+Despite the game saying normal difficulty has 8 attempts, you start with one less on first run. The hints are backwards: Guessing lower than secret number shows "go lower." The game also doesn't seem to update correctly, as submitting guesses doesn't append to the number to history and the attempts counter doesn't change; it only updates on subsequent presses. I feel like changing the game is also supposed to start a new game, as the secret number doesn't change which is an issue since normal difficulty has range 1-100 while hard has 1-50.
 ---
 
 ## 2. How did you use AI as a teammate?
