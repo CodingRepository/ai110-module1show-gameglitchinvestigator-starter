@@ -15,7 +15,7 @@ Despite the game saying normal difficulty has 8 attempts, you start with one les
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
 - Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
-
+Using Copilot, I was able to refactor and correct the bugs surrounding secret number (e.g. type comparison, wrong hints). The AI made a good, simple suggestion on its second try, converting the str secret on even numbered attempts to int to always ensure an int comparison. However, it gave a very convoluted solution on its initial prompt that essentially chose to convert the user's guess to a str. The specific implementation (which I don't completely remember) did correctly compare as ints, but it was just unnecessary and hard to read.
 ---
 
 ## 3. Debugging and testing your fixes
@@ -24,7 +24,7 @@ Despite the game saying normal difficulty has 8 attempts, you start with one les
 - Describe at least one test you ran (manual or using pytest)  
   and what it showed you about your code.
 - Did AI help you design or understand any tests? How?
-
+I reviewed the suggested code changes and used intuition, pytests, and game runs to verify the problem was indeed fixed. For example, the pytest "test_check_guess_with_string_secret" would check whether the function was properly comparing int to int. I used tests like int 3 against str "20" to see whether check_guess would properly assert 3 was lower than 20. Had the bug not been fixed, it would've compared lexicographically, making the test fail. AI helped me to understand each of the function logic when I did not understand it, and I would generate a pytest then review to make sure it was actually testing the issue at hand.
 ---
 
 ## 4. What did you learn about Streamlit and state?

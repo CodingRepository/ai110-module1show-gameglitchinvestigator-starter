@@ -11,14 +11,22 @@ def parse_guess(raw: str):
     """
     raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
 
-
+# FIX: Refactored logic from app.py into logic_utils.py using Copilot.
+# Fixed str vs int bug using type conversion and changed hints to be correct. Imported logic_utils into app.py.
 def check_guess(guess, secret):
     """
     Compare guess to secret and return (outcome, message).
 
     outcome examples: "Win", "Too High", "Too Low"
     """
-    raise NotImplementedError("Refactor this function from app.py into logic_utils.py")
+    guess = int(guess)
+    secret = int(secret)
+    if guess == secret:
+        return "Win", "🎉 Correct!"
+    elif guess > secret:
+        return "Too High", "📉 Go LOWER!"
+    else:
+        return "Too Low", "📈 Go HIGHER!"
 
 
 def update_score(current_score: int, outcome: str, attempt_number: int):
