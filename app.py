@@ -42,6 +42,10 @@ if "status" not in st.session_state:
 if "history" not in st.session_state:
     st.session_state.history = []
 
+# Used to create a fresh input widget key on each new game, so the input clears cleanly.
+if "game_id" not in st.session_state:
+    st.session_state.game_id = 0
+
 st.subheader("Make a guess")
 
 st.info(
@@ -58,7 +62,7 @@ with st.expander("Developer Debug Info"):
 
 raw_guess = st.text_input(
     "Enter your guess:",
-    key=f"guess_input_{difficulty}"
+    key=f"guess_input_{difficulty}_{st.session_state.game_id}"
 )
 
 col1, col2, col3 = st.columns(3)
@@ -69,9 +73,14 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
+# FIX: New game correctly resets relevant session state variables and secret within appropriate range for difficulty.
 if new_game:
     st.session_state.attempts = 0
-    st.session_state.secret = random.randint(low, high) # FIX: New game correctly resets secret within the appropriate range for difficulty.
+    st.session_state.score = 0
+    st.session_state.history = []
+    st.session_state.status = "playing"
+    st.session_state.secret = random.randint(low, high)  # FIX: New game correctly resets secret within the appropriate range for difficulty.
+    st.session_state.game_id += 1  # rotate the widget key so Streamlit treats the input as new (clearing its value)
     st.success("New game started.")
     st.rerun()
 
